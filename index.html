@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeria Interativa</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Galeria de Natureza</h1>
+        <p>Explore paisagens incríveis e descubra novos lugares.</p>
+    </header>
+
+    <main>
+        <section class="filtros">
+            <button class="filtro ativo" data-filtro="todos">Todos</button>
+            <button class="filtro" data-filtro="montanhas">Montanhas</button>
+            <button class="filtro" data-filtro="florestas">Florestas</button>
+            <button class="filtro" data-filtro="aguas">Águas</button>
+        </section>
+
+        <p id="quantidade">9 fotografias encontradas</p>
+
+        <section class="galeria">
+
+            <article class="foto destaque"
+                data-categoria="montanhas"
+                data-titulo="Montanhas ao amanhecer"
+                data-descricao="As montanhas ganham novas cores com a chegada do sol."
+                data-local="Cordilheira dos Andes">
+                <img src="imagens/foto1.jpg" alt="Montanhas ao amanhecer">
+                <div class="legenda"><h2>Montanhas ao amanhecer</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="florestas"
+                data-titulo="Floresta verde"
+                data-descricao="Uma floresta densa, repleta de vegetação."
+                data-local="Floresta Amazônica">
+                <img src="imagens/foto2.webp" alt="Floresta verde">
+                <div class="legenda"><h2>Floresta verde</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="aguas"
+                data-titulo="Praia tranquila"
+                data-descricao="O encontro entre o mar e a areia cria uma paisagem relaxante."
+                data-local="Litoral brasileiro">
+                <img src="imagens/foto3.jpg" alt="Praia tranquila">
+                <div class="legenda"><h2>Praia tranquila</h2></div>
+            </article>
+
+            <article class="foto horizontal"
+                data-categoria="montanhas"
+                data-titulo="Vale das montanhas"
+                data-descricao="Um vale cercado por grandes montanhas."
+                data-local="Região dos Alpes">
+                <img src="imagens/foto4.jpg" alt="Vale das montanhas">
+                <div class="legenda"><h2>Vale das montanhas</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="florestas"
+                data-titulo="Trilha na floresta"
+                data-descricao="Uma trilha cercada por árvores e vegetação."
+                data-local="Parque natural">
+                <img src="imagens/foto5.avif" alt="Trilha na floresta">
+                <div class="legenda"><h2>Trilha na floresta</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="aguas"
+                data-titulo="Cachoeira"
+                data-descricao="A água percorre as rochas e forma uma bela cachoeira."
+                data-local="Parque das cachoeiras">
+                <img src="imagens/foto6.jpg" alt="Cachoeira entre as rochas">
+                <div class="legenda"><h2>Cachoeira</h2></div>
+            </article>
+
+            <article class="foto horizontal"
+                data-categoria="montanhas"
+                data-titulo="Pico nevado"
+                data-descricao="O topo da montanha permanece coberto de neve."
+                data-local="Região montanhosa">
+                <img src="imagens/foto7.jpg" alt="Pico de montanha nevado">
+                <div class="legenda"><h2>Pico nevado</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="florestas"
+                data-titulo="Bosque iluminado"
+                data-descricao="A luz do sol atravessa as árvores do bosque."
+                data-local="Bosque natural">
+                <img src="imagens/foto8.jpg" alt="Bosque iluminado pelo sol">
+                <div class="legenda"><h2>Bosque iluminado</h2></div>
+            </article>
+
+            <article class="foto"
+                data-categoria="aguas"
+                data-titulo="Lago cristalino"
+                data-descricao="Um lago de águas tranquilas cercado pela natureza."
+                data-local="Região dos lagos">
+                <img src="imagens/foto9.jpg" alt="Lago de águas cristalinas">
+                <div class="legenda"><h2>Lago cristalino</h2></div>
+            </article>
+
+        </section>
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="modal-conteudo">
+
+            <button class="fechar" id="fechar" aria-label="Fechar modal">
+                &times;
+            </button>
+
+            <img id="imagem-modal" src="" alt="">
+
+            <div class="informacoes">
+                <h2 id="titulo-modal"></h2>
+                <p id="descricao-modal"></p>
+                <p><strong>Categoria:</strong> <span id="categoria-modal"></span></p>
+                <p><strong>Local:</strong> <span id="local-modal"></span></p>
+                <p id="contador">1 de 9</p>
+            </div>
+
+            <div class="navegacao">
+                <button id="anterior">❮ Anterior</button>
+                <button id="proximo">Próximo ❯</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f4f0;
+    color: #24352b;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #214b36;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 12px;
+    font-size: 36px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filtro {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    background-color: #dce6dd;
+    color: #214b36;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background-color: #214b36;
+    color: white;
+}
+
+#quantidade {
+    text-align: center;
+    margin-bottom: 22px;
+    color: #526257;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 190px;
+    grid-auto-flow: dense;
+    gap: 15px;
+}
+
+.foto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #dce6dd;
+    animation: aparecer 0.4s ease;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s, filter 0.4s;
+}
+
+.foto:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+}
+
+.destaque {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 12px 12px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.legenda h2 {
+    font-size: 17px;
+}
+
+.foto.oculta {
+    display: none;
+}
+
+/* Quando um filtro estiver selecionado, todas ficam iguais */
+
+.galeria.filtrada {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+}
+
+.galeria.filtrada .foto {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-conteudo {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    background-color: white;
+    animation: entrar 0.3s ease;
+}
+
+@keyframes entrar {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#imagem-modal {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #17251c;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    color: #222;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.informacoes {
+    padding: 20px;
+}
+
+.informacoes h2 {
+    margin-bottom: 12px;
+}
+
+.informacoes p {
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+#contador {
+    text-align: center;
+    font-weight: bold;
+}
+
+.navegacao {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 20px 20px;
+}
+
+.navegacao button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: #214b36;
+    color: white;
+    cursor: pointer;
+}
+
+.navegacao button:hover {
+    background-color: #356e4e;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 180px;
+    }
+
+    .galeria.filtrada {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .galeria,
+    .galeria.filtrada {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 160px;
+    }
+
+    .destaque,
+    .horizontal,
+    .galeria.filtrada .foto {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .legenda h2 {
+        font-size: 14px;
+    }
+
+    #imagem-modal {
+        height: 250px;
+    }
+
+    .navegacao button {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
